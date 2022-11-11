@@ -1,9 +1,6 @@
 package Taller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class JuegosOlimpicos {
     public static void main(String[] args) {
@@ -95,7 +92,7 @@ public class JuegosOlimpicos {
                                 break;
                             case 2:
                                 if (Brasil.size() > 0) {
-                                    Brasil.stream().sorted();
+                                    Arrays.sort(Brasil.toArray());
                                     System.out.println("n min = " + Brasil.get(0));
                                     System.out.println("n max = " + Brasil.get(Brasil.size()));
                                 } else {
@@ -104,7 +101,7 @@ public class JuegosOlimpicos {
                                 break;
                             case 3:
                                 if (Mexico.size() > 0) {
-                                    Mexico.stream().sorted(Comparator.reverseOrder());
+                                    Arrays.sort(Mexico.toArray(), Collections.reverseOrder());
                                     System.out.println("los tiempos de los nadadores mexicanos " +
                                             "de mayor a menor son: " + Mexico);
                                 } else {
