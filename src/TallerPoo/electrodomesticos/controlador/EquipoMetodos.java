@@ -10,16 +10,16 @@ public class EquipoMetodos {
 static Scanner input=new Scanner(System.in);
 
 static ArrayList<EquipoSonidoCons>equiposRegistrados=new ArrayList<>();
-   static int precioVenta=0;
 
     public static int menu(){
     int opcEquipo;
     System.out.println("""
+            ::::::Equipo Sonido:::::::
             1. Registrar un equipo de sonido.
             2. Listar los equipos registrados de sonido.
             3. Modificar el registro de un equipo de sonido.
             4. Eliminar el registro de un equipo de sonido.
-            5. vender equipo
+            5. Regresar
             elija una opcion del menu:
             """);
     opcEquipo=input.nextInt();
@@ -36,7 +36,7 @@ static ArrayList<EquipoSonidoCons>equiposRegistrados=new ArrayList<>();
         System.out.println("ingrese color");
         String color= input.next();
         System.out.println("ingrese precio:");
-        precioVenta= input.nextInt();
+        int precioVenta= input.nextInt();
         System.out.println("ingrese consumo energetico(kilowatts)");
         float consumo= input.nextFloat();
         System.out.println("ingrese peso del producto:");
@@ -115,24 +115,25 @@ static ArrayList<EquipoSonidoCons>equiposRegistrados=new ArrayList<>();
             System.out.println("equipo "+buscarReferencia+" No fue encontrado\n");
         }
     }
-    public static void venderEquipo(){
+    public static double venderEquipo(){
         int buscar=0;
-        System.out.println("ingrese referencia a vender.");
+        double ventaTotal=0;
+        System.out.println("ingrese referencia del equiopo a vender.");
         int buscarReferencia= input.nextInt();
         for (EquipoSonidoCons equipo:equiposRegistrados) {
             if (equipo.getReferencia()==buscarReferencia){
-                System.out.println("ingrese cuantos equipo va a vender");
+                System.out.println("ingrese cuantos equipo va a vender de la referencia: "+ equipo.getReferencia());
                 int vender= input.nextInt();
                 buscar=1;
                 if (vender==1){
-                   double totalV=precioVenta*0.15;
-                    System.out.println("el valor del equipo de sonido tiene un costo de "+ (precioVenta+totalV));
-
-
+                    double totalV=equipo.getPrecioVenta()*0.15;
+                    ventaTotal= equipo.getPrecioVenta()+totalV;
+                    System.out.println("el valor del equipo de sonido tiene un costo de "+ventaTotal);
                     System.out.println("equipo de sonido vendido exitosamenete.");
                     break;
                 }else {
-                    System.out.println("el valor de los equipos de sonido tiene un costo de "+(precioVenta*vender));
+                    ventaTotal = equipo.getPrecioVenta()*vender;
+                    System.out.println("el valor de los equipos de sonido tiene un costo de "+ ventaTotal);
                     System.out.println("equipo de sonido vendido exitosamenete #"+ vender);
                     break;
                 }
@@ -142,6 +143,8 @@ static ArrayList<EquipoSonidoCons>equiposRegistrados=new ArrayList<>();
         if (buscar==0){
             System.out.println("equipo "+buscarReferencia+" No fue encontrado\n");
         }
+
+        return ventaTotal;
     }
 
 }

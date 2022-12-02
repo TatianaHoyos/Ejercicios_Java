@@ -7,6 +7,9 @@ public class InicioTele {
         int opcion=0;
         do {
             opcion=menuTelevi();
+            if(opcion==5){
+                break;
+            }
             switch (opcion){
                 case 1:
                     registrarTele();
@@ -20,8 +23,9 @@ public class InicioTele {
                 case 4:
                     eliminarTele();
                     break;
-                case 5:
-                    venderTele();
+                default:
+                    System.out.println("Opción no valida");
+                    break;
 
 
             }

@@ -1,6 +1,5 @@
 package EjerciciosRecuperacion;
 
-import ejercicios.loops.Promedio;
 
 import java.util.*;
 
