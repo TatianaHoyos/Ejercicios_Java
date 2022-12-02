@@ -3,8 +3,9 @@ package TallerPoo.electrodomesticos.vista;
 import java.util.Scanner;
 
 import static TallerPoo.electrodomesticos.controlador.EquipoMetodos.venderEquipo;
-import static TallerPoo.electrodomesticos.modelo.InicioEquipo.menuEquipos;
+import static TallerPoo.electrodomesticos.controlador.InicioEquipo.menuEquipos;
 import static TallerPoo.electrodomesticos.controlador.InicioTele.menuTele;
+import static TallerPoo.electrodomesticos.controlador.TelevisorMetodos.venderTele;
 
 public class SamsungElectrodomesticos {
     public static void main(String[] args) {
@@ -30,25 +31,34 @@ public class SamsungElectrodomesticos {
                     menuTele();
                     break;
                 case 3:
+                    double totalVenta=0;
                     while (true){
                         System.out.println("""
                                 :::ventas::::
-                                1.equipo de sonido
-                                2.televisores
-                                3.regresar
+                                1.Vender equipo de sonido
+                                2.Vender televisores
+                                3.Finalizar venta - Generar factura
                                 ingrese una opcion:
                                 """);
                         int ventas=input.nextInt();
-                        if (ventas==3){
-                            break;
-                        }
+
                         switch (ventas){
                             case 1:
-                                venderEquipo();
+                                totalVenta = totalVenta + venderEquipo();
                                 break;
                             case 2:
+                                totalVenta = totalVenta + venderTele();
                                 break;
+                            case 3:
+                                System.out.println("Total de la venta realizada: "+ totalVenta);
+                                break;
+                            default:
+                                System.out.println("Opción de venta no válida");
+                                break;
+                        }
 
+                        if (ventas==3){
+                            break;
                         }
                     }
                     break;

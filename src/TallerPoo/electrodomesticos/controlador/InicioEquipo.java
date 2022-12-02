@@ -1,4 +1,4 @@
-package TallerPoo.electrodomesticos.modelo;
+package TallerPoo.electrodomesticos.controlador;
 
 import static TallerPoo.electrodomesticos.controlador.EquipoMetodos.*;
 
@@ -7,6 +7,9 @@ public class InicioEquipo {
         int opcion=0;
         do {
             opcion=menu();
+            if(opcion==5){
+                break;
+            }
             switch (opcion){
                 case 1:
                     registrarEquipo();
@@ -20,11 +23,14 @@ public class InicioEquipo {
                 case 4:
                     eliminarEquipo();
                     break;
-                case 5:
-                    venderEquipo();
-
+                default:
+                    System.out.println("Opción no valida");
+                    break;
             }
 
         }while (opcion!=0);
     }
+
+
+
 }
