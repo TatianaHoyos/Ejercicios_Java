@@ -1,4 +1,6 @@
-package TallerPoo.deportivosNacionales;
+package TallerPoo.deportivosNacionales.modelo;
+
+import TallerPoo.deportivosNacionales.modelo.Deportes;
 
 public class Equitacion extends Deportes {
     private String nombreEquipo;
@@ -6,7 +8,7 @@ public class Equitacion extends Deportes {
     private int categoria;
 
     public Equitacion(String nombreEquipo, float velocidad, int categoria,
-                      int referencia,String departamento, String nombreDeporte) {
+                      int referencia,String departamento, int nombreDeporte) {
         super(referencia,departamento,nombreDeporte);
         this.nombreEquipo = nombreEquipo;
         this.velocidad = velocidad;
@@ -40,9 +42,9 @@ public class Equitacion extends Deportes {
     @Override
     public String toString() {
         return "" +
-                "nombreEquipo='" + nombreEquipo + '\n' +
-                "velocidad=" + velocidad +
-                "categoria='" + categoria + '\n' +
+                "nombreEquipo=" + nombreEquipo + '\n' +
+                "velocidad=" + velocidad + '\n' +
+                "categoria=" + categoria + '\n' +
                 super.toString() +
                 "";
     }

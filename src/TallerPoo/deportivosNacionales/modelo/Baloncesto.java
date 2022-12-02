@@ -1,10 +1,10 @@
-package TallerPoo.deportivosNacionales;
+package TallerPoo.deportivosNacionales.modelo;
 
 public class Baloncesto extends Deportes {
     private int nIntegrantes;
     private double puntuacion;
 
-    public Baloncesto(int nIntegrantes, double puntuacion,int referencia, String departamento, String nombreDeporte) {
+    public Baloncesto(int nIntegrantes, double puntuacion,int referencia, String departamento, int nombreDeporte) {
         super(referencia,departamento,nombreDeporte);
         this.nIntegrantes = nIntegrantes;
         this.puntuacion = puntuacion;

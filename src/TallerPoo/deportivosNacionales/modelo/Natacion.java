@@ -1,4 +1,6 @@
-package TallerPoo.deportivosNacionales;
+package TallerPoo.deportivosNacionales.modelo;
+
+import TallerPoo.deportivosNacionales.modelo.Deportes;
 
 public class Natacion extends Deportes {
     private int numeroIntegrantes;
@@ -6,7 +8,7 @@ public class Natacion extends Deportes {
     private int categoria;
 
     public Natacion(int numeroIntegrantes, double tiempoEstimado, int categoria,
-                    int referencia, String departamento, String nombreDeporte) {
+                    int referencia, String departamento, int nombreDeporte) {
         super(referencia,departamento,nombreDeporte);
         this.numeroIntegrantes = numeroIntegrantes;
         this.tiempoEstimado = tiempoEstimado;
